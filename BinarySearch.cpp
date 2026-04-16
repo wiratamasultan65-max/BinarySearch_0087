@@ -1,48 +1,51 @@
 #include <iostream>
 using namespace std;
 
-int elemen[10];
+int element[10];
 int nPanjang;
 int x;
 
 void input(){
-    while(true){
-        cout << "Masukan banyak elemen pada array (maksimal 10): ";
-        cin >> nPanjang;
+  while (true){
+    cout << "masukkan banyak nya elemen pada array (makssimal 10) : ";
+    cin >> nPanjang;
 
-        if (nPanjang <= 10){
-            break;
-        }
-        else {
-            cout << "\n[!] Jumalah elemen tidak boleh lebih dari 10, silahkan coba lagi.\n";
-        }
-    }
-
-    cout << "\n=============================\n";
-    cout << "\n    Masukan Elemen Array    \n";
-    cout << "\n=============================\n";
-
-    for (int i = 0; i < nPanjang; i++)
+    if (nPanjang <= 10)
     {
-        cout << "Data ke-" << (i+1) << " = ";
-        cin >> elemen[i];
+      break;
     }
+    else
+    {
+      cout << "\n[!] Jumlah elemen tidak boleh lebih dari 10. Silahkan coba lagi.\n";
+    }
+  }
+
+
+cout << "\n=======================================\n";
+cout << "           masukkan elemen array          \n";
+cout << "\n=======================================\n";
+
+for (int i = 0; i < nPanjang; i++)
+  {
+  cout << "data ke-" << (i+1) << " = ";
+  cin >> element[i];
+  }
 }
 
 void bubbleSortArray()
 {
     int pass = 1;
-    for (int j = 0; j < nPanjang-1 - pass; j++)
+    do
     {
-        if (elemen[j] > elemen[j+1])
+        for (int j = 0; j <= nPanjang - 1 - pass; j++)
         {
-            int temp = elemen[j];
-            elemen[j] = elemen[j+1];
-            elemen[j+1] = temp;
+          if (element[j] > element[j+1])
+          {
+            int temp = element[j];
+            element[j] = element[j + 1];
+            element[j + 1] = temp;
+          }
         }
-    }
-    pass++;
-} while (pass <= nPanjang -1)
-
-
-
+        pass++;
+    } while (pass <= nPanjang - 1);
+}
